@@ -9,10 +9,10 @@ const PRODUCTS = {
     title: "Bloom Hoodie",
     price: 350,
     images: [
-      "../Pictures Folder/Grey Hoodie/Grey Hoodie Front.png",
-      "../Pictures Folder/Grey Hoodie/Grey Hoodie Back.png",
-      "../Pictures Folder/Grey Hoodie/Werared Front AI Hoodie.png",
-      "../Pictures Folder/Grey Hoodie/Weared Back Grey Hoodie.png"
+      "Pictures Folder/Grey Hoodie/Grey Hoodie Front.png",
+      "Pictures Folder/Grey Hoodie/Grey Hoodie Back.png",
+      "Pictures Folder/Grey Hoodie/Werared Front AI Hoodie.png",
+      "Pictures Folder/Grey Hoodie/Weared Back Grey Hoodie.png"
     ],
     desc: "Floral embroidery meets township grit. Comfortable and durable.",
     sizes: {
@@ -29,9 +29,9 @@ const PRODUCTS = {
     title: "White Dry Mac",
     price: 350,
     images: [
-      "../Pictures Folder/Jackets/Dry-Mac Front.png",
-      "../Pictures Folder/Jackets/Dry-Mac Back.png",
-      "../Pictures Folder/Jackets/Dry-Mac Weared Front.png"
+      "Pictures Folder/Jackets/Dry-Mac Front.png",
+      "Pictures Folder/Jackets/Dry-Mac Back.png",
+      "Pictures Folder/Jackets/Dry-Mac Weared Front.png"
     ],
     desc: "Lightweight overshirt for travel and rainy days.",
     sizes: {
@@ -49,11 +49,11 @@ bluedrymac: {
     title: "Blue Dry Mac",
     price: 350,
     images: [
-        "../Pictures Folder/Blue DryMac/Blue DryMac Front.png",
-        "../Pictures Folder/Blue DryMac/Blue DryMac Back.png",
-        "../Pictures Folder/Blue DryMac/Blue DryMac Unzipped.png",
-        "../Pictures Folder/Blue DryMac/Blue DryMac Front Weared.png",
-        "../Pictures Folder/Blue DryMac/Blue DryMac Back Weared.png"
+        "Pictures Folder/Blue DryMac/Blue DryMac Front.png",
+        "Pictures Folder/Blue DryMac/Blue DryMac Back.png",
+        "Pictures Folder/Blue DryMac/Blue DryMac Unzipped.png",
+        "Pictures Folder/Blue DryMac/Blue DryMac Front Weared.png",
+        "Pictures Folder/Blue DryMac/Blue DryMac Back Weared.png"
     ],
     desc: "Light and protective overshirt - handy for rainy walks, school and travel.",
     sizes: {
@@ -71,9 +71,9 @@ bluedrymac: {
     title: "Street Jersey",
     price: 380,
     images: [
-      "../Pictures Folder/Jackets/WhiteJacket Front.png",
-      "../Pictures Folder/Jackets/WhiteJacket Back.png",
-      "../Pictures Folder/Jackets/WhitJacket Weared Front.png"
+      "Pictures Folder/Jackets/WhiteJacket Front.png",
+      "Pictures Folder/Jackets/WhiteJacket Back.png",
+      "Pictures Folder/Jackets/WhitJacket Weared Front.png"
     ],
     desc: "Breathable knit for everyday wear.",
     sizes: {
