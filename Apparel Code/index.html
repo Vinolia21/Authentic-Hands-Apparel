@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home | Authentic Hands Apparel</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-banner">
+      <img src="../Pictures Folder/Logo/ApparelLogoGemini.png" alt="Authentic Hands Apparel Logo" class="logo-wide" />
+    </div>
+    <div class="header-inner">
+      <nav class="main-nav">
+       <a href="index.html" class="nav-link">Home</a> 
+       <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+         <a href="FaqPage.html" class="nav-link">FAQ</a>
+      </nav>
+      <div class="cart-mini" id="cartMini">
+        <button id="openCartBtn" title="Open cart">Cart (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Effortless Style</h1>
+        <p>Everyday comfort, authentically yours.</p>
+        <div class="hero-actions">
+          <a class="btn" href="products.html">Shop Now</a>
+          <a class="btn ghost" href="about.html">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured container">
+      <h2>Featured Picks</h2>
+      <div class="product-grid">
+        <article class="product-card">
+          <img src="../Pictures Folder/Grey Hoodie/Grey Hoodie Back.png" alt="Bloom Hoodie" />
+          <h3>Bloom Hoodie</h3>
+          <p class="price">R350</p>
+          <p class="muted">Floral embroidery meets township grit.</p>
+          <div class="card-actions">
+            <a class="btn small" href="products.html?product=bloom">View</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="../Pictures Folder/Jackets/Dry-Mac Front.png" alt="White Dry Mac" />
+          <h3>White Dry Mac</h3>
+          <p class="price">R350</p>
+          <p class="muted">Lightweight, water-friendly overshirt.</p>
+          <div class="card-actions">
+            <a class="btn small" href="products.html?product=drymac">View</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="../Pictures Folder/Jackets/WhiteJacket Back.png" alt="Street Jersey" />
+          <h3>Street Jersey</h3>
+          <p class="price">R380</p>
+          <p class="muted">Breathable knit, everyday wear.</p>
+          <div class="card-actions">
+            <a class="btn small" href="products.html?product=jersey">View</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="howitworks container">
+      <h2>How ordering works</h2>
+      <div class="steps">
+        <div class="step">
+          <h4>Choose</h4>
+          <p>Pick your product and the size — we'll show measurements for every size.</p>
+        </div>
+        <div class="step">
+          <h4>Add to Cart</h4>
+          <p>Add multiple items — the cart accumulates price and quantity.</p>
+        </div>
+        <div class="step">
+          <h4>Track</h4>
+          <p>Use our parcel tracker to see delivery progress (demo).</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Authentic Hands Apparel.</p>
+      <p class="muted">Made with ❤️ in Brits & Pretoria</p>
+    </div>
+  </footer>
+
+  <!-- Optional modal (still available if needed later) -->
+  <div id="productModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeProductModal()">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Cart drawer -->
+  <div id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button onclick="closeCart()">Close</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: R<span id="cartTotal">0</span></div>
+      <button class="btn" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

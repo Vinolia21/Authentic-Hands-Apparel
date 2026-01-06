@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | Authentic Hands Apparel</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <img src="../Pictures Folder/Logo/ApparelLogoGemini.png" alt="Authentic Hands Apparel Logo" class="logo-wide" />
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+         <a href="FaqPage.html" class="nav-link">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Contact Us</h1>
+    <div class="contact-grid">
+      <!-- Web3Forms integration -->
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="fab3e725-0aef-4d96-ba11-02cfbae3cd2a" />
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+
+            <!-- Success/Error message -->
+      <div id="form-status" style="margin-top: 16px; font-weight: 600;"></div>
+
+      <div class="contact-details">
+        <h3>Reach us</h3>
+        <p><strong>Email:</strong> <a href="mailto:authentichandsapparel@gmail.com">authentichandsapparel@gmail.com</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/27677997158" target="_blank" rel="noopener">+27 67 799 7158</a></p>
+        <p><strong>Facebook:</strong> <a href="https://facebook.com/authentichandsapparel" target="_blank" rel="noopener">Authentic Hands Apparel</a></p>
+        <p><strong>TikTok:</strong> <a href="https://www.tiktok.com/@authentichandsapparel" target="_blank" rel="noopener">@authentichandsapparel</a></p>
+
+        <h4>Business hours</h4>
+        <p>Mon — Fri: 09:00 — 17:00</p>
+        <p>Sat: 09:00 — 14:00</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Authentic Hands Apparel.</p>
+    </div>
+  </footer>
+
+
+
+  <!-- Success/Error handling script -->
+  <script>
+    const form = document.querySelector('.contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "✅ Message sent successfully! We'll be in touch soon.";
+          status.style.color = "#4A5F5E"; // sage-dark
+          form.reset();
+        } else {
+          status.innerHTML = "❌ Something went wrong. Please try again.";
+          status.style.color = "#B86F56"; // terracotta-dark
+        }
+      }).catch(error => {
+        status.innerHTML = "❌ Network error. Please check your connection.";
+        status.style.color = "#B86F56";
+      });
+    });
+  </script>
+
+
+</body>
+</html>
+

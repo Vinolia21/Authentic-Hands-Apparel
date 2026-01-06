@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Products | Authentic Hands Apparel</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <img src="../Pictures Folder/Logo/ApparelLogoGemini.png" alt="Authentic Hands Apparel Logo" class="logo-wide" />
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+         <a href="FaqPage.html" class="nav-link">FAQ</a>
+      </nav>
+      <div class="cart-mini" id="cartMini">
+        <button id="openCartBtn" title="Open cart">Cart (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Products</h1>
+
+    <section class="product-list">
+      <!-- Bloom Hoodie -->
+      <article class="product-single" id="bloom">
+        <div class="product-left">
+          <div class="carousel" data-product="bloom">
+            <div class="carousel-images">
+              <img src="../Pictures Folder/Grey Hoodie/Grey Hoodie Front.png" alt="Bloom hoodie front" />
+              <img src="../Pictures Folder/Grey Hoodie/Grey Hoodie Back.png" alt="Bloom hoodie back" />
+              <img src="../Pictures Folder/Grey Hoodie/Werared Front AI Hoodie.png" alt="Bloom worn front" />
+              <img src="../Pictures Folder/Grey Hoodie/Weared Back Grey Hoodie.png" alt="Bloom worn back" />
+            </div>
+            <button class="carousel-btn prev" onclick="carouselPrev(this)">←</button>
+            <button class="carousel-btn next" onclick="carouselNext(this)">→</button>
+          </div>
+        </div>
+        <div class="product-right">
+          <h2>Bloom Hoodie</h2>
+          <p class="price">R350</p>
+          <p>Floral embroidery meets township grit. Designed for comfort, stitched with care.</p>
+          <label for="size_bloom">Select Size</label>
+          <select id="size_bloom" data-product="bloom" onchange="updateSizeInfoInline(this)">
+            <option value="">-- Choose Size --</option>
+            <option value="XS">X-Small</option>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">X-Large</option>
+            <option value="XXL">XX-Large</option>
+          </select>
+          <div class="size-info" id="sizeInfo_bloom"></div>
+          <div class="quantity">
+            <label>Qty</label>
+            <input type="number" value="1" min="1" id="qty_bloom">
+          </div>
+          <div class="product-actions">
+            <button class="btn" onclick="validateSizeAndAdd('bloom')">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- White Dry Mac -->
+      <article class="product-single" id="drymac">
+        <div class="product-left">
+          <div class="carousel" data-product="drymac">
+            <div class="carousel-images">
+              <img src="../Pictures Folder/Jackets/Dry-Mac Front.png" alt="Dry Mac front" />
+              <img src="../Pictures Folder/Jackets/Dry-Mac Back.png" alt="Dry Mac back" />
+              <img src="../Pictures Folder/Jackets/Dry-Mac Front Unzipped.png" alt="Dry Mac unzipped" />
+              <img src="../Pictures Folder/Jackets/Dry-Mac Weared Front.png" alt="Dry Mac worn front" />
+              <img src="../Pictures Folder/Jackets/Dry-Mac Weared Back.png" alt="Dry Mac worn back" />
+            </div>
+            <button class="carousel-btn prev" onclick="carouselPrev(this)">←</button>
+            <button class="carousel-btn next" onclick="carouselNext(this)">→</button>
+          </div>
+        </div>
+        <div class="product-right">
+          <h2>White Dry Mac</h2>
+          <p class="price">R350</p>
+          <p>Light and protective overshirt — handy for rainy walks and travel.</p>
+          <label for="size_drymac">Select Size</label>
+          <select id="size_drymac" data-product="drymac" onchange="updateSizeInfoInline(this)">
+            <option value="">-- Choose Size --</option>
+            <option value="XS">X-Small</option>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">X-Large</option>
+            <option value="XXL">XX-Large</option>
+          </select>
+          <div class="size-info" id="sizeInfo_drymac"></div>
+          <div class="quantity">
+            <label>Qty</label>
+            <input type="number" value="1" min="1" id="qty_drymac">
+          </div>
+          <div class="product-actions">
+            <button class="btn" onclick="validateSizeAndAdd('drymac')">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+            <!-- Blue Dry Mac -->
+      <article class="product-single" id="bluedrymac">
+        <div class="product-left">
+          <div class="carousel" data-product="bluedrymac">
+
+            <div class="carousel-images">
+              <img src="../Pictures Folder/Blue DryMac/Blue DryMac Front.png" alt="Blue DryMac front" />
+              <img src="../Pictures Folder/Blue DryMac/Blue DryMac Back.png" alt="Blue DryMac back" />
+              <img src="../Pictures Folder/Blue DryMac/Blue DryMac Unzipped.png" alt="Blue DryMac unzipped" />
+              <img src="../Pictures Folder/Blue DryMac/Blue DryMac Front Weared.png" alt="Blue DryMac worn front" />
+              <img src="../Pictures Folder/Blue DryMac/Blue DryMac Back Weared.png" alt="Blue DryMac worn back" />
+            </div>
+            <button class="carousel-btn prev" onclick="carouselPrev(this)">←</button>
+            <button class="carousel-btn next" onclick="carouselNext(this)">→</button>
+          </div>
+        </div>
+        <div class="product-right">
+          <h2>Blue Dry Mac</h2>
+          <p class="price">R350</p>
+          <p>Light and protective overshirt — handy for rainy walks school and travel.</p>
+         <label for="size_bluedrymac">Select Size</label>
+         <select id="size_bluedrymac" data-product="bluedrymac"
+          onchange="updateSizeInfoInline(this)">
+          <option value=""> -- Choose Size -- </option>
+          <option value="XS">X-Small</option>
+          <option value="S">Small</option>
+          <option value="M">Medium</option>
+          <option value="L">Large</option>
+          <option value="XL">X-Large</option>
+          <option value="XXL">XX-Large</option>
+          </select>
+          <div class="size-info" id="sizeInfo_bluedrymac"></div>
+          <div class="quantity">
+          <label>Qty</label>
+          <input type="number" value="1" min="1" id="qty_bluedrymac">
+         </div>
+         <div class="product-actions">
+         <button class="btn" onclick="validateSizeAndAdd('bluedrymac')">Add to Cart</button>
+        </div>
+       </div>
+      </article>
+
+      <!-- Street Jersey -->
+      <article class="product-single" id="jersey">
+        <div class="product-left">
+          <div class="carousel" data-product="jersey">
+            <div class="carousel-images">
+              <img src="../Pictures Folder/Jackets/WhiteJacket Front.png" alt="Jersey front" />
+              <img src="../Pictures Folder/Jackets/WhiteJacket Back.png" alt="Jersey back" />
+              <img src="../Pictures Folder/Jackets/WhitJacket Weared Front.png" alt="Jersey worn front" />
+              <img src="../Pictures Folder/Jackets/WhiteJacket Weared Back.png" alt="Jersey worn back" />
+            </div>
+            <button class="carousel-btn prev" onclick="carouselPrev(this)">←</button>
+            <button class="carousel-btn next" onclick="carouselNext(this)">→</button>
+          </div>
+        </div>
+        <div class="product-right">
+          <h2>Street Jersey</h2>
+          <p class="price">R380</p>
+          <p>Breathable knit, ready for everyday wear.</p>
+          <label for="size_jersey">Select Size</label>
+          <select id="size_jersey" data-product="jersey" onchange="updateSizeInfoInline(this)">
+            <option value="">-- Choose Size --</option>
+            <option value="XS">X-Small</option>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">X-Large</option>
+            <option value="XXL">XX-Large</option>
+          </select>
+          <div class="size-info" id="sizeInfo_jersey"></div>
+          <div class="quantity">
+            <label>Qty</label>
+            <input type="number" value="1" min="1" id="qty_jersey">
+          </div>
+          <div class="product-actions">
+            <button class="btn" onclick="validateSizeAndAdd('jersey')">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+   <section class="tracker container">
+  <h2>Track your parcel</h2>
+  <p>Enter your tracking number to see delivery status.</p>
+  <div class="tracker-form">
+    <input id="trackNumber" placeholder="Enter tracking number (e.g. AH-1234)" />
+    <button class="btn" onclick="trackParcel()">Track</button>
+  </div>
+  <div id="trackResult" class="track-result"></div>
+</section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Authentic Hands Apparel.</p>
+    </div>
+  </footer>
+
+  <!-- Checkout Modal -->
+<div id="checkoutModal" class="modal" aria-hidden="true">
+    <div class="modal-content checkout-box">
+        <button class="modal-close" onclick="closeCheckout()">✕</button>
+
+        <h2>Checkout</h2>
+
+        <p class="checkout-info">
+            After placing your order, you will receive an <strong>Order ID</strong> to track your delivery.
+        </p>
+
+        <form id="checkoutForm">
+
+            <label for="custName">Full Name & Surname</label>
+            <input type="text" id="custName" name="custName" required />
+
+            <label for="custEmail">Email</label>
+            <input type="email" id="custEmail" name="custEmail" required />
+
+            <label for="custPhone">Phone Number</label>
+            <input type="tel" id="custPhone" name="custPhone" required />
+
+            <label for="custAddress">Full Address (Street, Suburb, City, Province, Postal Code)</label>
+            <textarea id="custAddress" name="custAddress" rows="3" required></textarea>
+
+            <label for="deliveryOption">Delivery Option</label>
+            <select id="deliveryOption" name="deliveryOption" required>
+                <option value="">-- Choose Option --</option>
+                <option value="pickup">Pickup</option>
+                <option value="delivery">Delivery (R70 fee)</option>
+            </select>
+
+            <p><strong>Payment Method:</strong> EFT / Bank Transfer</p>
+            <p>
+                Bank Name: Standard Bank<br>
+                Account Holder: Authentic Hands Apparel<br>
+                Account Number: 63 408 001 6<br>
+                Branch Code: 51001<br>
+                Reference: Your Order Number
+            </p>
+
+            <p>Please complete payment within 24 hours to confirm your order.</p>
+
+            <button type="submit" class="btn">Place Order</button>
+        </form>
+    </div>
+</div>
+
+
+  <!-- Cart drawer -->
+  <div id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button onclick="closeCart()">Close</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: R<span id="cartTotal">0</span></div>
+      <button class="btn" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
