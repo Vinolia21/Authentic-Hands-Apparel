@@ -248,7 +248,8 @@ function trackParcel(){
     return;
   }
 
-  fetch("http://localhost:5000/get-order-status", {
+  fetch("https://authentic-hands-apparel-2.onrender.com/get-order-status", {
+
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ tracking: code })
@@ -301,7 +302,8 @@ document.addEventListener("DOMContentLoaded", () => {
       saveCart([]);
 
       // Send to backend for email + save
-      fetch("http://localhost:5000/send-confirmation", {
+      fetch("https://authentic-hands-apparel-2.onrender.com/send-confirmation", {
+
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
