@@ -46,6 +46,7 @@ const orderSchema = new mongoose.Schema({
 const Order = mongoose.model("Order", orderSchema);
 
 // Email transporter
+/*
 function getTransporter() {
   return nodemailer.createTransport({
     service: "gmail",
@@ -56,6 +57,21 @@ function getTransporter() {
     tls: { rejectUnauthorized: false }
   });
 }
+  */
+ function getTransporter() {
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.SMTP_EMAIL, // or SMTP_USER if you switch
+      pass: process.env.SMTP_PASS
+    },
+    tls: { rejectUnauthorized: false },
+    connectionTimeout: 20000,
+    greetingTimeout: 20000,
+    socketTimeout: 20000
+  });
+}
+
 
 // Create order: save + send email
 app.post("/send-confirmation", async (req, res) => {
