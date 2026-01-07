@@ -44,20 +44,7 @@ const orderSchema = new mongoose.Schema({
 });
 
 const Order = mongoose.model("Order", orderSchema);
-
-// Email transporter
 /*
-function getTransporter() {
-  return nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.SMTP_EMAIL,
-      pass: process.env.SMTP_PASS
-    },
-    tls: { rejectUnauthorized: false }
-  });
-}
-  */
  function getTransporter() {
   return nodemailer.createTransport({
     service: "gmail",
@@ -69,6 +56,18 @@ function getTransporter() {
     connectionTimeout: 20000,
     greetingTimeout: 20000,
     socketTimeout: 20000
+  });
+}
+*/
+function getTransporter() {
+  return nodemailer.createTransport({
+    host: "smtp-relay.brevo.com",
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.SMTP_EMAIL,
+      pass: process.env.SMTP_PASS
+    }
   });
 }
 

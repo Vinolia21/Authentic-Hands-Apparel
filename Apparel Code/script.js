@@ -7,7 +7,7 @@ const PRODUCTS = {
   bloom: {
     id: "bloom",
     title: "Bloom Hoodie",
-    price: 350,
+    price: 400,
     images: [
       "Pictures Folder/Grey Hoodie/Grey Hoodie Front.png",
       "Pictures Folder/Grey Hoodie/Grey Hoodie Back.png",
