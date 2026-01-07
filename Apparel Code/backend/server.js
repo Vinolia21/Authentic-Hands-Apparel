@@ -1,8 +1,8 @@
 const express = require("express");
-const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const SibApiV3Sdk = require('@sendinblue/client');
 require("dotenv").config();
 
 const app = express();
@@ -22,7 +22,7 @@ const orderSchema = new mongoose.Schema({
   phone: String,
   tracking: { type: String, index: true },
   grandTotal: Number,
-  delivery: String, // "pickup" | "delivery"
+  delivery: String,
   address: String,
   cart: [
     {
@@ -44,33 +44,37 @@ const orderSchema = new mongoose.Schema({
 });
 
 const Order = mongoose.model("Order", orderSchema);
-/*
- function getTransporter() {
-  return nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.SMTP_EMAIL, // or SMTP_USER if you switch
-      pass: process.env.SMTP_PASS
-    },
-    tls: { rejectUnauthorized: false },
-    connectionTimeout: 20000,
-    greetingTimeout: 20000,
-    socketTimeout: 20000
-  });
-}
-*/
-function getTransporter() {
-  return nodemailer.createTransport({
-    host: "smtp-relay.brevo.com",
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.SMTP_EMAIL,
-      pass: process.env.SMTP_PASS
-    }
-  });
-}
 
+// Brevo API email sender function
+async function sendBrevoEmail(to, subject, htmlContent) {
+  const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+  
+  // Set API key
+  apiInstance.setApiKey(
+    SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
+    process.env.BREVO_API_KEY
+  );
+
+  const sendSmtpEmail = {
+    to: [{ email: to }],
+    sender: { 
+      email: "9f7a48001@smtp-brevo.com", 
+      name: "Authentic Hands Apparel" 
+    },
+    subject: subject,
+    htmlContent: htmlContent,
+    replyTo: { email: "9f7a48001@smtp-brevo.com" }
+  };
+
+  try {
+    const result = await apiInstance.sendTransacEmail(sendSmtpEmail);
+    console.log('✅ Email sent successfully via Brevo API');
+    return result;
+  } catch (error) {
+    console.error('❌ Brevo API Error:', error);
+    throw error;
+  }
+}
 
 // Create order: save + send email
 app.post("/send-confirmation", async (req, res) => {
@@ -96,8 +100,6 @@ app.post("/send-confirmation", async (req, res) => {
 
     await newOrder.save();
     console.log("✅ Order saved:", newOrder.tracking);
-
-    const transporter = getTransporter();
 
     const itemsHtml = orderData.cart
       .map(item => `<li>${item.title} — Size: ${item.size} — Qty: ${item.qty} — R${item.price}</li>`)
@@ -128,13 +130,12 @@ app.post("/send-confirmation", async (req, res) => {
       </div>
     `;
 
-    await transporter.sendMail({
-      from: `"Authentic Hands Apparel" <${process.env.SMTP_EMAIL}>`,
-      to: email,
-      replyTo: process.env.SMTP_EMAIL,
-      subject: `Order Confirmation – ${orderData.tracking}`,
-      html: htmlReceipt
-    });
+    // Send email using Brevo API
+    await sendBrevoEmail(
+      email,
+      `Order Confirmation – ${orderData.tracking}`,
+      htmlReceipt
+    );
 
     console.log(`✅ Confirmation email sent to ${email}`);
     res.json({ success: true, message: "Email sent and order saved" });
@@ -184,14 +185,21 @@ app.post("/update-status", async (req, res) => {
     );
     if (!order) return res.status(404).json({ success: false, message: "Order not found" });
 
-    // Optional: notify customer of status change
-    const transporter = getTransporter();
-    await transporter.sendMail({
-      from: `"Authentic Hands Apparel" <${process.env.SMTP_EMAIL}>`,
-      to: order.email,
-      subject: `Order Update – ${order.tracking}`,
-      html: `<p>Your order status has been updated to: <strong>${status}</strong></p>`
-    });
+    // Notify customer of status change
+    const statusHtml = `
+      <div style="font-family: Arial, sans-serif; color: #333;">
+        <h2>Order Status Update</h2>
+        <p>Your order <strong>${order.tracking}</strong> status has been updated.</p>
+        <p><strong>New Status:</strong> ${status}</p>
+        <p>Thank you for shopping with Authentic Hands Apparel!</p>
+      </div>
+    `;
+
+    await sendBrevoEmail(
+      order.email,
+      `Order Update – ${order.tracking}`,
+      statusHtml
+    );
 
     res.json({ success: true, message: "Status updated", order });
   } catch (err) {
@@ -202,6 +210,32 @@ app.post("/update-status", async (req, res) => {
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`🚀 Server running on port ${port}`));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
