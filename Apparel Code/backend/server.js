@@ -56,14 +56,13 @@ async function sendBrevoEmail(to, subject, htmlContent) {
   );
 
   const sendSmtpEmail = {
-    to: [{ email: to }],
-    sender: { 
-      email: "9f7a48001@smtp-brevo.com", 
-      name: "Authentic Hands Apparel" 
-    },
+   sender: { 
+  email: "authentichandsapparel@gmail.com", 
+  name: "Authentic Hands Apparel" 
+},
     subject: subject,
     htmlContent: htmlContent,
-    replyTo: { email: "9f7a48001@smtp-brevo.com" }
+    replyTo: { email: "authentichandsapparel@gmail.com" }
   };
 
   try {
