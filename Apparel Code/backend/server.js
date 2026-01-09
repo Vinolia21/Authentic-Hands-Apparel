@@ -55,6 +55,7 @@ async function sendBrevoEmail(to, subject, htmlContent) {
     process.env.BREVO_API_KEY
   );
 
+  /*
   const sendSmtpEmail = {
    sender: { 
   email: "authentichandsapparel@gmail.com", 
@@ -64,6 +65,19 @@ async function sendBrevoEmail(to, subject, htmlContent) {
     htmlContent: htmlContent,
     replyTo: { email: "authentichandsapparel@gmail.com" }
   };
+*/
+
+const sendSmtpEmail = {
+  sender: { 
+    email: "info@authentichandsapparel.co.za", 
+    name: "Authentic Hands Apparel" 
+  },
+  to: [{ email: to }], // customer email
+  bcc: [{ email: "authentichandsapparel@gmail.com" }], // your Gmail copy
+  subject: subject,
+  htmlContent: htmlContent,
+  replyTo: { email: "authentichandsapparel@gmail.com" }
+};
 
   try {
     const result = await apiInstance.sendTransacEmail(sendSmtpEmail);
