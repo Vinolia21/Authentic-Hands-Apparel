@@ -401,8 +401,8 @@ p {
 
 .product-card img {
   width: 100%;
-  height: 260px;
-  object-fit: cover;
+  height: auto; /*260px*/
+  object-fit: contain; /*cover*/
   border-radius: var(--radius-md);
   margin-bottom: 16px;
   transition: var(--transition);
@@ -601,8 +601,8 @@ p {
 
   .carousel img {
   width: 100%;
-  height: 500px; /* You can adjust this height to your preferred crop level */
-  object-fit: cover; /* Crops edges slightly while keeping proportions */
+  height: auto; /*500px You can adjust this height to your preferred crop level */
+  object-fit: contain; /*cover Crops edges slightly while keeping proportions */
   border-radius: var(--radius-md);
   transition: var(--transition);
 }
@@ -1197,6 +1197,14 @@ footer p {
   .container {
     padding: 24px 16px;
   }
+
+  /* UPDATE HERE: ensure images scale properly on mobile */
+.product-card img,
+.carousel img {
+  height: auto;
+  object-fit: contain;
+}
+
 }
 
 @media (max-width: 480px) {
